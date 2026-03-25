@@ -20,9 +20,9 @@
 <body>
   <div>
     <div class="wrapper">
-      <h1 style="font-family: &#39;Lato&#39;, sans-serif;">Your Title Here</h1>
-      <h4 style="font-family: &#39;Lato&#39;, sans-serif; ">Fall 2024 CSCI 5541 NLP: Class Project - University of Minnesota</h4>
-      <h4 style="font-family: &#39;Lato&#39;, sans-serif; ">Team Name</h4>
+      <h1 style="font-family: &#39;Lato&#39;, sans-serif;">Translating Akkadian to English</h1>
+      <h4 style="font-family: &#39;Lato&#39;, sans-serif; ">Spring 2026 CSCI 5541 NLP: Class Project - University of Minnesota</h4>
+      <h4 style="font-family: &#39;Lato&#39;, sans-serif; ">TeamworkIsAllYouNeed</h4>
 
       <div class="authors-wrapper">
         
@@ -35,7 +35,7 @@
           </div>
           <p>
                         
-              Member 1
+            Joseph Mandell
             
           </p>
         </div>
@@ -48,7 +48,7 @@
           </div>
           <p>
             
-            Member 2
+            Jack Fast
             
           </p>
         </div>
@@ -60,7 +60,7 @@
             
           </div>
           <p>
-              Member 3
+              Tianzhe Han
           </p>
         </div>
         
@@ -71,7 +71,7 @@
             
           </div>
           <p>
-            Member 4
+           Ryota Tanaka
           </p>
         </div>
         
@@ -93,7 +93,7 @@
           </span>
           <span class="link-block">
             <a
-              href=""
+              href="https://github.com/JoeMandell/CSCI5541_DeepPastKaggle"
               target="_blank"
               class="external-link button is-normal is-rounded is-dark is-outlined"
             >
@@ -152,21 +152,23 @@
 <b>What did you try to do? What problem did you try to solve? Articulate your objectives using absolutely no jargon.</b>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+We are doing a challenge from Kaggle where we take in transliterations of Akkadian (ancient Middle Eastern) text and translate them to English. Our main objective is to build and train a deep learning language model
+to perform this translation task, meaning we are training a computer program to recognize patterns in these ancient words so it can automatically translate them for us. We are motivated by the fact that there is a large amount of Akkadian text that has been transliterated but not yet translated, and we believe that a deep learning approach can help us unlock the meaning of these ancient texts.
 </p>
 
 <p>
 <b>How is it done today, and what are the limits of current practice?</b>
 </p>
 <p>
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Currently, the translation of Akkadian text is done manually by scholars who have expertise in the language. This process is time-consuming and requires a deep understanding of the language and its grammar. Additionally, there are many transliterated texts that have not yet been translated due to the sheer volume of material and the limited number of experts available. The limits of current practice include the slow pace of translation and the potential for human error in interpreting the text.
 <p>
 
 <p>
 <b>Who cares? If you are successful, what difference will it make?</b>
 </p>
 <p>
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+If we are successful, we will be able to help scholars and historians better understand the content of Akkadian text, which can provide valuable insights into the culture, society, and history of ancient Mesopotamia. Additionally, our work can contribute to the 
+field of natural language processing by demonstrating an effective approach to translating low-resource languages. 
 </p>
 
 <hr>
@@ -178,7 +180,14 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 </p>
 
 <p>
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+We approached the task using a sequence to sequence transformer model based on byT5 architecture model. Unlike traditional NLP models,
+byT5 operates directly on byte-level input, which allows it to handle a wide variety of languages and scripts without the need for tokenization. We chose this approach because it has been shown to be effective in low-resource language settings, 
+and we believed that it would be well-suited for the task of translating Akkadian text. Additionally, we implemented a custom training loop and experimented with different hyperparameters to optimize the performance of our model.
+</p>
+<p>
+We thought this approach would be most successful because Akkadian as a language has unique symbols and meanings where tokenization can be difficult because the same 'letter' in a word can have different meanings. 
+Thus we need to use a byte-level model that can learn the meaning of each symbol in context rather than relying on a fixed vocabulary of tokens. 
+This approach is new in the sense that using this type of model for an ancient language with such a unique structure has not been widely explored. 
 </p>
 
 <p>
