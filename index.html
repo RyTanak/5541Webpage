@@ -116,40 +116,31 @@
     </div>
   </div>
 
-
-
-
-
-  
-  
-
-
-  <div class="wrapper">
-    <hr>
+<div class="wrapper">
+  <hr>
     
-    <h2 id="abstract">Abstract</h2>
+  <h2 id="abstract">Abstract</h2>
 
-<p>One or two sentences on the motivation behind the problem you are solving. One or two sentences describing the approach you took. One or two sentences on the main result you obtained.</p>
+<p>Based on the Kaggle competition “Deep Past Challenge: Translate Akkadian to English,” this project aims to develop an effective translation model for converting Akkadian transliterations into 
+  English using sequence-to-sequence methods. We fine tuned a ByT5 transformer model, which operates at teh bytel level and is well suited for handling low resource text like the Akkadian language. Hyperparameter tuning was performed using 
+  Weights & Biases (WandB). We managed to achieve a score of 28 on the competition metric, which approaches the scores of top-performing models. 
+</p>
 
 <hr>
 
-<h2 id="teaser">Teaser Figure</h2>
+<h2 id="teaser">Translation Examples</h2>
 
-<p>A figure that conveys the main idea behind the project or the main application being addressed. This figure is from <a href="https://arxiv.org/pdf/2210.07469">StyLEx</a>.</p>
-
-<p class="sys-img"><img src="./files/teaser.png" alt="imgname"></p>
+<p class="sys-img"><img src="./files/Translation_example.png" alt="translation_example"></p>
 
 
-<h3 id="the-timeline-and-the-highlights">Any subsection</h3>
-
-<p>If you need to explain more about your figure</p>
+<p>The akkadian symbols are first transformed into transliterated text before being translated.</p>
 
 <hr>
 
 <h2 id="introduction">Introduction / Background / Motivation</h2>
 
 <p>
-<b>What did you try to do? What problem did you try to solve? Articulate your objectives using absolutely no jargon.</b>
+<b>What did we do? </b>
 </p>
 <p>
 We are doing a challenge from Kaggle where we take in transliterations of Akkadian (ancient Middle Eastern) text and translate them to English. Our main objective is to build and train a deep learning language model
@@ -164,7 +155,7 @@ Currently, the translation of Akkadian text is done manually by scholars who hav
 <p>
 
 <p>
-<b>Who cares? If you are successful, what difference will it make?</b>
+<b>Who cares? If we are successful, what difference will it make?</b>
 </p>
 <p>
 If we are successful, we will be able to help scholars and historians better understand the content of Akkadian text, which can provide valuable insights into the culture, society, and history of ancient Mesopotamia. Additionally, our work can contribute to the 
@@ -174,10 +165,6 @@ field of natural language processing by demonstrating an effective approach to t
 <hr>
 
 <h2 id="approach">Approach</h2>
-
-<p>
-<b>What did you do exactly? How did you solve the problem? Why did you think it would be successful? Is anything new in your approach?</b>
-</p>
 
 <p>
 We approached the task using a sequence to sequence transformer model based on byT5 architecture model. Unlike traditional NLP models,
@@ -191,7 +178,7 @@ This approach is new in the sense that using this type of model for an ancient l
 </p>
 
 <p>
-<b>What problems did you anticipate? What problems did you encounter? Did the very first thing you tried work?</b>
+<b>What problems did we anticipate and encounter?</b>
 </p>
 
 <p>
