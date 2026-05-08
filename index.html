@@ -27,12 +27,12 @@
       <div class="authors-wrapper">
         
         <div class="author-container">
-          <div class="author-image">
+          <!-- <div class="author-image">
                         
               <img src="">
             
             
-          </div>
+          </div> -->
           <p>
                         
             Joseph Mandell
@@ -41,11 +41,11 @@
         </div>
         
         <div class="author-container">
-          <div class="author-image">
+          <!-- <div class="author-image">
             
             <img src="">
             
-          </div>
+          </div> -->
           <p>
             
             Nicholas Pederson
@@ -54,22 +54,22 @@
         </div>
         
         <div class="author-container">
-          <div class="author-image">
+          <!-- <div class="author-image">
             
               <img src="">            
             
-          </div>
+          </div> -->
           <p>
               Tianzhe Han
           </p>
         </div>
         
         <div class="author-container">
-          <div class="author-image">
+          <!-- <div class="author-image">
                         
               <img src="">
             
-          </div>
+          </div> -->
           <p>
            Ryota Tanaka
           </p>
@@ -82,7 +82,7 @@
       <div class="authors-wrapper">
         <div class="publication-links">
           <!-- Github link -->
-          <span class="link-block">
+          <!-- <span class="link-block">
             <a
               href=""
               target="_blank"
@@ -90,7 +90,7 @@
             >
             <span>Final Report</span>
             </a>
-          </span>
+          </span> -->
           <span class="link-block">
             <a
               href="https://github.com/JoeMandell/CSCI5541_DeepPastKaggle"
@@ -100,7 +100,7 @@
             <span>Code</span>
             </a>
           </span>      
-          <span class="link-block">
+          <!-- <span class="link-block">
             <a
               href=""
               target="_blank"
@@ -108,7 +108,7 @@
             >
             <span>Model Weights</span>
             </a>
-          </span>              
+          </span>               -->
         </div>
       </div>
 
@@ -123,7 +123,7 @@
 
 <p>Based on the Kaggle competition “Deep Past Challenge: Translate Akkadian to English,” this project aims to develop an effective translation model for converting Akkadian transliterations into 
   English using sequence-to-sequence methods. We fine tuned a ByT5 transformer model, which operates at teh bytel level and is well suited for handling low resource text like the Akkadian language. Hyperparameter tuning was performed using 
-  Weights & Biases (WandB). We managed to achieve a score of 28 on the competition metric, which approaches the scores of top-performing models. 
+  Weights & Biases (WandB). We managed to achieve a score above 24 on the competition metric, which approaches the scores of some top-performing models. 
 </p>
 
 <hr>
@@ -172,6 +172,16 @@ byT5 operates directly on byte-level input, which allows it to handle a wide var
 and we believed that it would be well-suited for the task of translating Akkadian text. Additionally, we implemented a custom training loop and experimented with different hyperparameters to optimize the performance of our model.
 </p>
 <p>
+Datasets from Kaggle and Huggingface were used to generate training and validation sets, and beam search was used to generate predictions. To monitor model performance and compare hyperparameter
+configurations, Weights & Biases (WandB) was used. 
+</p>
+<div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <img src="files/Picture1.jpg" style="max-width: 35%; height: auto; display: block; margin: 0 auto;">
+    <p style="margin-top: 10px; font-size: 15px;">
+        <em>Example of using Weights &amp; Biases to test hyperparameter configurations.</em>
+    </p>
+</div>
+<p>
 We thought this approach would be most successful because Akkadian as a language has unique symbols and meanings where tokenization can be difficult because the same 'letter' in a word can have different meanings. 
 Thus we need to use a byte-level model that can learn the meaning of each symbol in context rather than relying on a fixed vocabulary of tokens. 
 This approach is new in the sense that using this type of model for an ancient language with such a unique structure has not been widely explored. 
@@ -190,36 +200,52 @@ We solved these problems by finding datasets on huggingface and implementing opt
     
 <h2 id="results">Results</h2>
 <p>
-<b>How did you measure success? What experiments were used? What were the results, both quantitative and qualitative? Did you succeed? Did you fail? Why?</b>
+<b>How did we measure success?</b>
 </p>
 <p>
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+The main metric used to evaluate the model was the geometric mean of BLEU and chrF++, where the BLEU score represents how close a candidate text is to the reference text, and chrF++
+evaluates character-level and word-level similarity. <br> 
+Higher score means better translation and thus higher competition performance. 
 </p>
+<p><strong>Results:</strong></p>
 <table>
   <thead>
     <tr>
-      <th style="text-align: center"><strong>Experiment</strong></th>
-      <th style="text-align: center">1</th>
-      <th style="text-align: center">2</th>
-      <th style="text-align: center">3</th>
+      <th style="text-align: center" width = 50%><strong>Submission Type</strong></th>
+      <th style="text-align: center">Score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>Sentence</strong></td>
-      <td style="text-align: center">Example 1</td>
-      <td style="text-align: center">Example 2</td>
-      <td style="text-align: center">Example 3</td>
+      <td style="text-align: center"><strong>First Score</strong></td>
+      <td style="text-align: center">10.65</td>
+
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Errors</strong></td>
-      <td style="text-align: center">error A, error B, error C</td>
-      <td style="text-align: center">error C</td>
-      <td style="text-align: center">error B</td>
+      <td style="text-align: center"><strong>Middle Score</strong></td>
+      <td style="text-align: center">18.19</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Best Score</strong></td>
+      <td style="text-align: center">24.32</td>
     </tr>
   </tbody>
-  <caption>Table 1. This is Table 1's caption</caption>
+  <caption>Table 1. The scores for the first submission, the middle score, and the our best result to the competition</caption>
 </table>
+<div style="display: block;justify-self: center; margin-left: auto; margin-right: auto;">
+  <p> Parameters for our best result: </p>
+  <ul>
+    <li>Number of beams: 5</li>
+    <li>Max input length: 2000</li>
+    <li>Max new tokens: 2000</li>
+    <li>Length penalty: 1.0</li>
+    <li>Repetition penalty: 1.1</li>
+    <li>No repeat ngram size: 18</li>
+    <li>Early stopping: True</li>
+    <li>Model type: community</li>
+  </ul>
+</div>
+
 <br>
 <div style="text-align: center;">
 <img style="height: 300px;" alt="" src="./files/results.png">
@@ -230,14 +256,21 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 
 
-<h2 id="conclusion">Conclustion and Future Work</h2>
+<h2 id="conclusion">Conclusion and Future Work</h2>
 <p>
+  <b>How easily are our results able to be reproduced by others? Did your dataset or annotation affect other people's choice of research or development projects to undertake?</b>  
+</p>
 
-  How easily are your results able to be reproduced by others?
-  Did your dataset or annotation affect other people's choice of research or development projects to undertake?
-  Does your work have potential harm or risk to our society? What kinds? If so, how can you address them?
-  What limitations does your model have? How can you extend your work for future research?</p>
+<p>Our work should be easily replicable, as the code is publicly available on Github and Kaggle. The individual datasets we used are also publicly available, although our combination of them for finetuning is quite possibly novel. 
+</p>
+<p><b>Does our work have potential harm or risk to our society?</b></p>
+<p>We do not believe our work has much potential for direct harm to people. However, since translations of Akkadian are fairly rare and there is a large accuracy gap between machine translations and expert translations, there is a risk of model collapse if machine translations like ours are used in databases. It could also cause confusion for beginning scholars of Akkadian if they treat our translations as ground truth, when they are really just one step on the path to better translation strategies. To avoid these pitfalls we will avoid publishing our translations without an explicit disclaimer that they are machine-generated and should not be used as ground truth for training.
+</p>
+<p><b>What limitations does our model have? How can we extend our work for future research?</b></p>
+<p>Our model converts transliterations to translations, but still requires an outside source to construct the transliterations from the original cuneiform. Fortunately, this is quite practical, as CNNs have achieved 97% accuracy on converting cuneiform to transliteration.
+By combining our existing inference pipeline with one of these models we could build a full Cuneiform-to-Translation model.
 
+</p>
 
 <hr>
 
